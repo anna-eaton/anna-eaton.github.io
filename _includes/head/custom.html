@@ -14,4 +14,14 @@
 <link rel="icon" href="/images/favicon.ico"/>
 <meta name="theme-color" content="#ffffff"/>
 
+<!-- Page-specific stylesheets, listed in a page's front matter as extra_css -->
+{% for css in page.extra_css %}<link rel="stylesheet" href="{{ css | relative_url }}"/>
+{% endfor %}
+
+<!-- Faint Game of Life background (assets/js/life-bg.js); explained on /fun/ -->
+<style>
+  body { background-color: transparent; }
+  #life-bg { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; }
+</style>
+
 <!-- end custom head snippets -->

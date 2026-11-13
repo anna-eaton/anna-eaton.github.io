@@ -1,0 +1,45 @@
+#N ANNA
+#C Evolves for 448 generations, then is exactly the still life 'ANNA' (54 blocks, nothing else). Start: 938 cells.
+#C Paste into https://copy.sh/life/ or Golly (File > Open Clipboard).
+x = 317, y = 236, rule = B3/S23
+313b3o2$313bo2bo$310b2obobo$312bobo4$4b2o286b2o$2o3b2o$b2ob2o11b5o272b
+3o$16bo275b2obo11bobo$18bo2bo270b3o12b2o$17bo2bo272bo14bo$20bo76bobo$
+28bo66b2obobo184bo$29bo67bob2o183bo$27b3o68bobo183b3o$99b2o2$10bo200bo
+$9b3obo196b2o$12b2o195bobo$13bo27bo166b3o2bo78bobo$42bo166b2o2bo78b2o
+9b3o$40b3o250bo7bob3o$299b2ob3o$301bo$44bo16b2o206bo$36bo5bobo212b2o9b
+o$34bobo6b2o13b3o195bob2o8b3o6bo$35b2o22bob2o182b2o10b2o18bobo$60b3o
+180bob2obo10bo17b2o$61bo181bo4b2o8b2o$244b3ob2o8b2o$23bobo220b2o$23bo$
+23bob2o33bo$25bo2bo32b2o202bo$27bo32b2o201b2o$27bo78bo141bobo13b2o$
+110bo137b2o$105b2o142bo20b3o$41b3o61b2o162b2o2bo$40bo2b2o64bo160bob2o$
+40b2obo63b3o114bo2bob3o35b2ob2o$42b2ob2o175b2o4bobo37bobo$43bobo177b2o
+4bo18bo20bo21bo$44bo44bobo118b2o18bo15b2o11bo30bo$91bo118b2obo14b2o17b
+2o10bobo24bob2o$78bo9bo2b2o115bo19bo30b2o25bo$76bobo10b2o117bo12bo64bo
+bo2bo$77b2o10bo95b2o2bo18b2o11bobo63b2o$92bo93bobobo21bo8b2o$81bo11b2o
+2bo88bo3bo$61bo10bo6bobo10b2o4b2o86bob2o$57b2o3bo9bo7b2o15b2o88bo$56b
+2o2bo11bob3o165bo$57bobo15b2o165bobo$58b2o14b2o166b2o$74bo37b2o$113bo$
+111b2o114b3o$98bo12b2ob2o109bo$96bobo3bobo10bo108b2o$97b2o4b2o8b3o110b
+2o$103bo125bo$225bo$210b2o$65b2o143bob2o$66bobo141bobobo$66b2ob2o144bo
+$67bobo142bobo$67b2o144bo$244b3obo$98bo145b2ob3o$94b3obo148bobo$94bo
+153bo$82b3o11bo2bo$85b2o10bobo$83bo2b2o9bo$86b2o$84b2o$227b3obo$227b2o
+b3o$230bobo$231bo$125bo2bo$123b2o65bo$126bo62bob2o$124bobo61bo2bo$126b
+2o64bo$124b2o65b2o$188bo2bo2$115bo$116bo$117b2obo$120bo$115bo2bobo$
+118b2o2$173b2o$173b2o$172bobo$171bobo$172bob3o41$134bo2bo$134bobo$132b
+2obo$133bo72bo$136b2o68b3o$135bo69b2o2bo$204bo2b3o$204b2o$205bo$104bo$
+103bobo$102b2ob2o128bo$86bo13b2obo128b4o$90bo9bo2b2o126bo$88b3o10b3o
+128bobo$86bo4bo140bo2bo$87bobobo141b2o$87bo2$72b2o$69bo2bobo$74bo$71b
+2obo$70bo$69bo146bo$215b2o$100b2o113bob2o$94b2o5b2o113bobo$93bobo4bo
+83b3o29b2ob2o$95bo88bobo31b3o8bo35bo3bo$184bo3b2o38b2o36bo2bo$186b2obo
+38bobo36bo2bo$186b2o77b2o$232bo34b2o$231b2o34bo$91b2o138bobo$36bo53b2o
+$40bo36b3o10b3o189b2o$38b3o38bo10bobo141b2o45bo2bo$27bo2bo5bo4bo36bo
+154b2o$26bo10bobobo47b3o17b3o123bo45b3o2bo$25bo11bo38bo31bobo172b3o$
+26b2ob2o45bo30bo130b2o45bo$26bob2o32b2o3bo7b2o30bo2bo126b2o6b2o3b2o$
+61bobo3b2o7b2obo31bo127bo5bobob2o$63bo2bobo6bo3bo27bo2bo134bo5bo$76bo
+2bo$77bo2$65b3o2bo112b2o11bobo$65b3obo112bob2o10bo2b2o$68b2o111b2obobo
+9bo2b2o54b2o$40b2o3bo19bo116bo3bo12b2o53b2o11b2o2b3o$39bobo3b2o134b3ob
+o12b2o56bo4bo4b2o3bo$13bo27bo2bobo4b2o207b3o5bo3bo$12bob2o34bob2o206bo
+bo$12bo4bo33b2o221b2o$12b2obobo19b3o12b2o206bo13bobo$16bo15b2o5bo11b2o
+207b2o12bo6bo19bo2bo$33b2o3bo222bo18b2o23bo$32bo247bobo23bo$301b2ob2o$
+302b2obo$23bo266bo$23b2o251b3o10b2o$22bobo250bo13bobo$275b2obo$278bo$
+20b2o257bo$21b2o253bo3bo$20bo4$7b2o$8b2o$7bo3$211bo99bo$211bo2bo90b3o
+2b2o$210bo2bo91bo4bobo$11bo203bo90bo$11bo198b5o$12bo$8bob2o$8bo3bo$8bo
+2bo$10bo!

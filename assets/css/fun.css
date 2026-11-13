@@ -1,0 +1,156 @@
+/* Styles for the /fun/ page. Colors come from the theme's CSS variables so
+   everything follows the light/dark toggle. */
+
+/* ---- The monogram puzzle ---- */
+.monogram-puzzle {
+  margin: 1em 0 1.5em;
+}
+
+.monogram {
+  display: block;
+  width: 168px;
+  height: 168px;
+  border: 1px solid var(--global-border-color);
+}
+
+.monogram__paper { fill: #fff; }
+
+.monogram__ink {
+  fill: #000;
+  shape-rendering: crispEdges;
+}
+
+.monogram__curve {
+  fill: none;
+  stroke: #e0452b;
+  stroke-width: 0.14;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 63;
+  stroke-dashoffset: 63;
+  opacity: 0;
+  transition: stroke-dashoffset 2.4s ease-in-out, opacity 0.2s;
+}
+
+.monogram__start {
+  fill: #e0452b;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.is-hinted .monogram__curve {
+  stroke-dashoffset: 0;
+  opacity: 0.9;
+}
+
+.is-hinted .monogram__start { opacity: 1; }
+
+.monogram__caption {
+  margin: 0.3em 0 0.6em;
+  font-family: monospace;
+  font-size: 0.75em;
+  color: var(--global-text-color-light);
+}
+
+/* ---- Spoilers ---- */
+details.spoiler {
+  margin: 0.4em 0 0.8em;
+  font-size: 0.9em;
+}
+
+details.spoiler > summary {
+  display: list-item;
+  cursor: pointer;
+  color: var(--global-link-color);
+  font-size: 0.85em;
+}
+
+details.spoiler[open] > summary { margin-bottom: 0.4em; }
+
+details.spoiler p { margin: 0 0 0.6em; }
+
+.bits {
+  font-family: monospace;
+  font-size: 0.85em;
+  word-break: break-word;
+}
+
+/* ---- Game of Life ---- */
+.life { margin: 1em 0 2em; }
+
+.life__canvas-wrap { width: 100%; }
+
+.life__canvas {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--global-border-color);
+  border-radius: 4px;
+  cursor: crosshair;
+  touch-action: manipulation;
+}
+
+.life__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4em 0.6em;
+  margin-top: 0.6em;
+}
+
+.life__controls .btn {
+  margin: 0;
+  min-width: 4.6em;
+}
+
+.life__field {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  margin: 0;
+  font-size: 0.8em;
+}
+
+.life__select {
+  width: auto;
+  margin: 0;
+  padding: 0.2em 0.4em;
+  font-size: 1em;
+}
+
+.life__speed {
+  width: 7em;
+  margin: 0;
+}
+
+.life__status {
+  margin: 0.4em 0 0;
+  font-size: 0.75em;
+  font-variant-numeric: tabular-nums;
+  color: var(--global-text-color-light);
+}
+
+/* ---- Cryptic clues ---- */
+.clues { padding-left: 1.2em; }
+
+.clues li { margin-bottom: 0.6em; }
+
+.clue { font-style: italic; }
+
+/* ---- Hilbert curve sign-off ---- */
+.hilbert-anim {
+  display: block;
+  width: 140px;
+  height: 140px;
+  margin: 0.5em 0 1em;
+}
+
+.hilbert-anim__path {
+  fill: none;
+  stroke: var(--global-link-color);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .monogram__curve { transition: none; }
+}
