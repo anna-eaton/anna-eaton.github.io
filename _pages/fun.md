@@ -37,7 +37,7 @@ Conway's Game of Life is a grid of cells that are alive or dead. Each generation
 
 ### About the background
 
-The faint pattern behind every page of this site is the same Game of Life. It starts as 938 cells spread along four diagonal arms: gliders, plus small seeds that churn for a while before each one throws off a glider. The gliders meet in pairs, and every collision is timed to leave behind exactly one 2×2 block and nothing else. Fifty-four of those blocks, built from the middle outward, spell my name, and from generation 448 on nothing moves. The run keeps going as you click between pages, so you can watch it finish. If your device asks for reduced motion, it just shows the finished word.
+The faint pattern behind every page of this site is the same Game of Life. It starts as 938 cells spread along four diagonal arms: gliders, plus small seeds that churn for a while before each one throws off a glider. The gliders meet in pairs, and every collision is timed to leave behind exactly one 2×2 block and nothing else. Fifty-four of those blocks, built from the middle outward, spell my name, and from generation 448 on nothing moves. The word holds for ten seconds, then the whole thing starts over. The run keeps going as you click between pages, so you can watch it finish. If your device asks for reduced motion, it just shows the finished word.
 
 ## Cryptic clues
 

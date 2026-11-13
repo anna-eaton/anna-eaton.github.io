@@ -1,7 +1,8 @@
 /* Faint Game of Life background: the ANNA pattern (assets/life/anna.rle)
- * evolves behind every page and settles into the word ANNA after 448
- * generations. The generation is kept in sessionStorage, so moving between
- * pages continues the run instead of restarting it. With reduced motion
+ * evolves behind every page, settles into the word ANNA after 448
+ * generations, holds the word for HOLD_MS, then starts over. The cycle is
+ * timed from a start stamp in sessionStorage, so moving between pages
+ * continues the run instead of restarting it. With reduced motion
  * requested, it shows the settled word without animating. */
 (function () {
   'use strict';
@@ -9,7 +10,9 @@
   window.__lifeBg = true;
 
   var RATE = 10;            // generations per second
-  var MAX_GEN = 460;        // the pattern is still from generation 448 on
+  var SETTLE = 448;         // the pattern is still from this generation on
+  var HOLD_MS = 10000;      // how long the finished word stays before restarting
+  var CYCLE_MS = SETTLE / RATE * 1000 + HOLD_MS;
   var START_KEY = 'lifeBgStart';
   var ALPHA = 0.08;         // how faint the cells are
 
@@ -60,7 +63,7 @@
     return next;
   }
 
-  var live, gen = 0, bounds, timer = null;
+  var initial, live, gen = 0, cycle = -1, bounds, timer = null;
 
   function color() {
     var c = getComputedStyle(document.body).getPropertyValue('--global-text-color').trim() || '#000';
@@ -88,39 +91,53 @@
     });
   }
 
-  function targetGen() {
+  function startTime() {
     var start;
     try { start = parseInt(sessionStorage.getItem(START_KEY), 10); } catch (e) { start = NaN; }
     if (!start) {
       start = Date.now();
       try { sessionStorage.setItem(START_KEY, String(start)); } catch (e) {}
     }
-    return Math.min(MAX_GEN, Math.floor((Date.now() - start) / 1000 * RATE));
+    return start;
+  }
+
+  // Which cycle we are in, and which generation that cycle has reached.
+  function position() {
+    var t = Date.now() - startTime();
+    var c = Math.floor(t / CYCLE_MS);
+    var g = Math.min(SETTLE, Math.floor((t - c * CYCLE_MS) / 1000 * RATE));
+    return { cycle: c, gen: g };
   }
 
   function advanceTo(g) { while (gen < g) { live = step(live); gen++; } }
 
+  function update() {
+    var p = position();
+    if (p.cycle !== cycle) { cycle = p.cycle; live = initial; gen = 0; }
+    var before = gen;
+    advanceTo(p.gen);
+    return gen !== before || p.gen === 0;
+  }
+
   function tick() {
     if (document.hidden) return;
-    var g = Math.min(MAX_GEN, gen + 1);
-    advanceTo(g);
-    draw();
-    if (gen >= MAX_GEN && timer) { clearInterval(timer); timer = null; }
+    if (update()) draw();
   }
 
   function init(text) {
     var cells = parseRLE(text);
     if (!cells.length) { canvas.remove(); return; }
-    live = new Set(cells.map(function (c) { return key(c[0], c[1]); }));
+    initial = new Set(cells.map(function (c) { return key(c[0], c[1]); }));
+    live = initial;
     bounds = cells.reduce(function (b, c) {
       return { x0: Math.min(b.x0, c[0]), y0: Math.min(b.y0, c[1]),
                x1: Math.max(b.x1, c[0]), y1: Math.max(b.y1, c[1]) };
     }, { x0: Infinity, y0: Infinity, x1: -Infinity, y1: -Infinity });
 
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    advanceTo(reduce ? MAX_GEN : targetGen());
+    if (reduce) advanceTo(SETTLE);
+    else { update(); timer = setInterval(tick, 1000 / RATE); }
     draw();
-    if (!reduce && gen < MAX_GEN) timer = setInterval(tick, 1000 / RATE);
     window.addEventListener('resize', draw);
   }
 
